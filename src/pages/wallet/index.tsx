@@ -37,23 +37,6 @@ const MyWallets = () => {
         />
       }
     >
-      {/* <div className="p-4 flex flex-col justify-center items-center">
-        <h1 className="text-2xl font-bold">My Wallets</h1>
-        <ul>
-          {walletContractsAddresses?.map((contract) => {
-            return (
-              <li
-                className="dark:bg-dark-secondary bg-light-secondary m-4 rounded p-4 cursor-pointer"
-                key={contract}
-                onClick={() => openContractHandler(contract)}
-              >
-                <button>{contract}</button>
-              </li>
-            );
-          })}
-        </ul>
-        </div> */}
-
       <div>
         <div className="mt-1 flex flex-col items-center justify-between space-y-2 text-center sm:flex-row sm:space-y-0 sm:text-left">
           <div>
@@ -114,11 +97,11 @@ const MyWallets = () => {
                     </div>
                   </div>
                   <div className="mt-1">
-                    <div className="badge mt-2 bg-primary/10 text-primary dark:bg-accent-light/15 dark:text-accent-light">
+                    {/* <div className="badge mt-2 bg-primary/10 text-primary dark:bg-accent-light/15 dark:text-accent-light">
                       3 Admins
-                    </div>
+                            </div> */}
                     <div className="mt-3 flex items-center justify-between space-x-2">
-                      <div className="flex -space-x-3">
+                      {/* <div className="flex -space-x-3">
                         <div className="avatar h-8 w-8 hover:z-10">
                           <div className="is-initial rounded-full bg-info text-xs+ uppercase text-white ring ring-white dark:ring-navy-700">
                             sx
@@ -134,7 +117,7 @@ const MyWallets = () => {
                             er
                           </div>
                         </div>
-                      </div>
+                          </div> */}
                       <button
                         onClick={() => openContractHandler(contract)}
                         className="btn h-8 w-8 rounded-full bg-slate-150 p-0 font-medium text-slate-800 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200/80 dark:bg-navy-500 dark:text-navy-50 dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90"

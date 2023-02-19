@@ -1,5 +1,5 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { FC } from 'react';
@@ -9,11 +9,7 @@ import { Fragment, useContext, useEffect, useState } from 'react';
 import ConnectWallet from '@/components/Wallet/ConnectWallet';
 import Identicon from '@/components/Wallet/Identicon';
 import { Web3Context } from '@/state/context/web3ContextProvider';
-import {
-  classNames,
-  ellipsisAddress,
-  getNetworkNameByChainId,
-} from '@/utils/utils';
+import { classNames, getNetworkNameByChainId } from '@/utils/utils';
 
 import ThemeToggle from './ThemeToggle';
 
@@ -52,11 +48,11 @@ const Navbar: FC = () => {
   const chainId = '5001';
   const account = userAddress;
 
-  const user = {
+  /* const user = {
     name: ellipsisAddress(String(account)),
     email: 'ipfs@blockchain.eth',
     imageUrl: '/favicon-32x32.png',
-  };
+  }; */
 
   const handleSignOut = () => {
     console.log('Sign Out');
@@ -147,15 +143,14 @@ const Navbar: FC = () => {
                             {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
-                                  <Link href={item.href} legacyBehavior>
-                                    <a
-                                      className={classNames(
-                                        active ? 'bg-gray-100' : '',
-                                        'block px-4 py-2 text-sm text-gray-700'
-                                      )}
-                                    >
-                                      {item.name}
-                                    </a>
+                                  <Link
+                                    href={item.href}
+                                    className={classNames(
+                                      active ? 'bg-gray-100' : '',
+                                      'block px-4 py-2 text-sm text-gray-700'
+                                    )}
+                                  >
+                                    {item.name}
                                   </Link>
                                 )}
                               </Menu.Item>
@@ -228,7 +223,7 @@ const Navbar: FC = () => {
                       <Identicon accountId={account} iconSize={36} />
                     </span>
                   </div>
-                  <div className="ml-3">
+                  {/* <div className="ml-3">
                     <div className="text-base font-medium leading-none text-white">
                       {user.name}
                     </div>
@@ -242,7 +237,7 @@ const Navbar: FC = () => {
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
+                    </button> */}
                 </div>
                 <div className="mt-3 space-y-1 px-2">
                   {userNavigation.map((item) => (
