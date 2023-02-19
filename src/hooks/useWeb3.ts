@@ -33,16 +33,16 @@ const web3Reducer = (
 };
 
 const getProvider = () => {
-  if ((window as any).ethereum) {
     try {
+      if ((window as any).ethereum) {
       return new ethers.providers.Web3Provider((window as any).ethereum, 'any');
+      } else {
+        return undefined;
+      }
     } catch (error) {
       console.log(error);
     }
-  } else {
-    return false;
-  }
-  return false;
+    return undefined;
 };
 
 export const useWeb3 = () => {

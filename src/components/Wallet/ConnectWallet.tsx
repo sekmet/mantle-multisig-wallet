@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from 'react';
 import Identicon from '@/components/Wallet/Identicon';
 import { Web3Context } from '@/state/context/web3ContextProvider';
 
+declare let window: any;
+
 const ConnectWallet = ({ handleOpenModal, DrawerMenu }: any) => {
   const {
     state: { userAddress },

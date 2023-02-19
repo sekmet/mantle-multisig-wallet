@@ -3,7 +3,7 @@ import { ethers } from 'ethers';
 import { useContext, useEffect, useReducer, useState } from 'react';
 
 import walletContractArtifact from '@/artifacts/contracts/MultiSigWallet.sol/MultiSigWallet.json';
-import type { TransactionRequest } from '@/lib/TransactionRequestBitdao';
+import type { ITransactionRequest } from '@/lib/TransactionRequestBitdao';
 import { Web3Context } from '@/state/context/web3ContextProvider';
 import type { MultiSigWallet } from '@/typechain/MultiSigWallet';
 
@@ -14,7 +14,7 @@ interface IInitialReducerWalletState {
   walletContractsAddresses: string[];
   loading: boolean;
   selectedWallet: Contract & MultiSigWallet;
-  transactionRequests: TransactionRequest[];
+  transactionRequests: ITransactionRequest[];
 }
 const initialState: IInitialReducerWalletState = {
   walletContractsAddresses: [],

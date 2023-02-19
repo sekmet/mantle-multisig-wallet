@@ -11,7 +11,7 @@
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
 
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
@@ -39,20 +39,19 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/artifacts/*": ["./artifacts/*"],
-      "@/typechain/*": ["./typechain/*"],
+      "@/typechain/*": ["./typechain-types/contracts/*"],
       "@/public/*": ["./public/*"]
     }
   },
-  "files": ["./hardhat.config.ts"],
   "exclude": [
     "./out/**/*",
     "./node_modules/**/*",
     "cypress/**/*.ts",
-    "./hardhat.config.ts"
+    "./hardhat.config.ts",
+    "./scripts",
+    "./test"
   ],
   "include": [
-    "./scripts",
-    "./test",
     "./typechain",
     "next-env.d.ts",
     "**/*.ts",

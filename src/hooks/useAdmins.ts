@@ -1,7 +1,7 @@
 import type { Contract } from 'ethers';
 import { useContext, useReducer } from 'react';
 
-import type { TransactionRequest } from '@/lib/TransactionRequestBitdao';
+import type { ITransactionRequest } from '@/lib/TransactionRequestBitdao';
 /* eslint-disable import/no-cycle */
 import { WalletContext } from '@/state/context/walletContextProvider';
 import { Web3Context } from '@/state/context/web3ContextProvider';
@@ -10,7 +10,7 @@ import type { MultiSigWallet } from '@/typechain/MultiSigWallet';
 interface IInitialReducerWalletState {
   admins: string[];
   error: string;
-  transactionRequests: TransactionRequest[];
+  transactionRequests: ITransactionRequest[];
 }
 const initialState: IInitialReducerWalletState = {
   admins: [],

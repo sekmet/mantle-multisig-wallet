@@ -49,7 +49,7 @@ const Navbar: FC = () => {
 
   const navigation = isMetamask ? navigationUser : navigationGuest;
 
-  const chainId = 5001;
+  const chainId = '5001';
   const account = userAddress;
 
   const user = {

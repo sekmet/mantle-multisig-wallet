@@ -1,5 +1,5 @@
 node_modules
 out
-hardhat.config.*
+hardhat.config.ts
 scripts
 test

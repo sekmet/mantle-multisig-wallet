@@ -44,7 +44,7 @@ const TransactionRequestsAll = () => {
             <tbody>
               {transactionRequests?.map((transaction) => (
                 <tr
-                  key={transaction.id}
+                  key={transaction.id.toString()}
                   className="border-y border-transparent border-b-slate-200 dark:border-b-navy-500"
                 >
                   <TransactionRequest {...transaction} />
