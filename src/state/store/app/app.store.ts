@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface InitialAppStoreState {
-  showSidenav: boolean;
-  tokenTypeSelected: string;
-}
+import type { InitialAppStoreState } from '@/lib/IAppStoreState';
 
 const initialState: InitialAppStoreState = {
   showSidenav: false,

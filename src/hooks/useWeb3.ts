@@ -1,11 +1,7 @@
 import { ethers } from 'ethers';
 import { useReducer } from 'react';
 
-interface IInitialReducerWeb3State {
-  provider: ethers.providers.Web3Provider;
-  userAddress: string;
-  isLoading: boolean;
-}
+import type { IInitialReducerWeb3State } from '@/lib/IReducerWeb3State';
 
 const initialState: IInitialReducerWeb3State = {
   provider: {} as ethers.providers.Web3Provider,
@@ -33,16 +29,16 @@ const web3Reducer = (
 };
 
 const getProvider = () => {
+  if ((window as any).ethereum) {
     try {
-      if ((window as any).ethereum) {
       return new ethers.providers.Web3Provider((window as any).ethereum, 'any');
-      } else {
-        return undefined;
-      }
     } catch (error) {
       console.log(error);
+      return undefined;
     }
+  } else {
     return undefined;
+  }
 };
 
 export const useWeb3 = () => {
@@ -64,13 +60,13 @@ export const useWeb3 = () => {
   const registerProviderEvents = () => {
     (window as any).ethereum.on('accountsChanged', async () => {
       try {
-        setUser(getProvider(), await getProvider().getSigner().getAddress());
+        setUser(getProvider(), await getProvider()!.getSigner().getAddress());
       } catch (error) {
         setUser(undefined, '');
       }
     });
     (window as any).ethereum.on('chainChanged', async () => {
-      setUser(getProvider(), await getProvider().getSigner().getAddress());
+      setUser(getProvider(), await getProvider()!.getSigner().getAddress());
     });
   };
 
@@ -98,7 +94,7 @@ export const useWeb3 = () => {
 
     if ((window as any).ethereum) {
       try {
-        const provider = getProvider();
+        const provider = getProvider()!;
         await provider.send('eth_requestAccounts', []);
         registerProviderEvents();
         setUser(provider, await provider.getSigner().getAddress());

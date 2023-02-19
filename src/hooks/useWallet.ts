@@ -3,19 +3,13 @@ import { ethers } from 'ethers';
 import { useContext, useEffect, useReducer, useState } from 'react';
 
 import walletContractArtifact from '@/artifacts/contracts/MultiSigWallet.sol/MultiSigWallet.json';
-import type { ITransactionRequest } from '@/lib/TransactionRequestBitdao';
+import type { IInitialReducerWalletState } from '@/lib/IReducerWalletState';
 import { Web3Context } from '@/state/context/web3ContextProvider';
 import type { MultiSigWallet } from '@/typechain/MultiSigWallet';
 
 /* eslint-disable import/no-cycle */
 import { useAdmins } from './useAdmins';
 
-interface IInitialReducerWalletState {
-  walletContractsAddresses: string[];
-  loading: boolean;
-  selectedWallet: Contract & MultiSigWallet;
-  transactionRequests: ITransactionRequest[];
-}
 const initialState: IInitialReducerWalletState = {
   walletContractsAddresses: [],
   loading: false,

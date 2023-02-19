@@ -52,7 +52,7 @@
     "./test"
   ],
   "include": [
-    "./typechain",
+    "./typechain-types",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
